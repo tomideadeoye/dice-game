@@ -21,6 +21,7 @@ document.addEventListener("keydown", (e) => {
 	// check if the key pressed is in the array
 	if (keys.includes(e.key)) {
 		let index = keys.indexOf(e.key);
+
 		playSound(soundArray[index]);
 	}
 });
@@ -36,11 +37,14 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 playall.addEventListener("click", playList);
 
 function playSound(sound) {
+	let index = soundArray.indexOf(sound);
+
 	// Random background color
 	body.style.backgroundColor =
 		"#" + Math.floor(Math.random() * 16777215).toString(16);
 	let audio = new Audio(`./sounds/${sound}.mp3`);
 	audio.play();
+	animate(keys[index]);
 }
 
 function playList() {
@@ -53,4 +57,12 @@ function playList() {
 		}, time);
 		time = time + 500;
 	}
+}
+
+function animate(key) {
+	console.log(key);
+	document.querySelector(`.${key}`).classList.add("pressed");
+	setTimeout(() => {
+		document.querySelector(`.${key}`).classList.remove("pressed");
+	}, 300);
 }
