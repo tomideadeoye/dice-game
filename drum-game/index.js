@@ -14,6 +14,17 @@ let soundArray = [
 ];
 let audios = [];
 
+let keys = ["w", "a", "s", "d", "j", "k", "l"];
+
+// key press event
+document.addEventListener("keydown", (e) => {
+	// check if the key pressed is in the array
+	if (keys.includes(e.key)) {
+		let index = keys.indexOf(e.key);
+		playSound(soundArray[index]);
+	}
+});
+
 // for loop adding event listeners to all buttons
 for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 	document.querySelectorAll(".drum")[i].addEventListener("click", () => {
