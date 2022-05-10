@@ -15,15 +15,14 @@ let soundArray = [
 let audios = [];
 
 // for loop adding event listeners to all buttons
-for (let i = 0; i <= document.querySelectorAll(".drum").length; i++) {
+for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 	document.querySelectorAll(".drum")[i].addEventListener("click", () => {
-		console.log(event.target.innerHTML);
 		playSound(soundArray[i]);
 	});
 }
 
 // adding event listener to play all button
-playall.addEventListener("click", interval);
+playall.addEventListener("click", playList);
 
 function playSound(sound) {
 	// Random background color
@@ -31,10 +30,6 @@ function playSound(sound) {
 		"#" + Math.floor(Math.random() * 16777215).toString(16);
 	let audio = new Audio(`./sounds/${sound}.mp3`);
 	audio.play();
-}
-
-function interval() {
-	playList();
 }
 
 function playList() {

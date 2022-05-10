@@ -1,6 +1,6 @@
 let player1 = document.querySelector(".img1");
 let player2 = document.querySelector(".img2");
-let container = document.querySelector(".container");
+let wrapper = document.querySelector(".wrapper");
 let header = document.querySelector("h1");
 let body = document.querySelector("body");
 let img = document.querySelectorAll("img");
@@ -15,7 +15,7 @@ function randomPlayer() {
 }
 
 // onclick event
-container.addEventListener("click", function () {
+wrapper.addEventListener("click", function () {
 	body.style.backgroundColor =
 		"#" + Math.floor(Math.random() * 16777215).toString(16);
 	for (let i = 0; i < img.length; i++) {
