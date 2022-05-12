@@ -19,9 +19,8 @@ let keys = ["w", "a", "s", "d", "j", "k", "l"];
 // key press event
 document.addEventListener("keydown", (e) => {
 	// check if the key pressed is in the array
-	if (keys.includes(e.key)) {
-		let index = keys.indexOf(e.key);
-
+	if (keys.includes(e.key.toLowerCase())) {
+		let index = keys.indexOf(e.key.toLowerCase());
 		playSound(soundArray[index]);
 	}
 });
@@ -60,7 +59,6 @@ function playList() {
 }
 
 function animate(key) {
-	console.log(key);
 	document.querySelector(`.${key}`).classList.add("pressed");
 	setTimeout(() => {
 		document.querySelector(`.${key}`).classList.remove("pressed");

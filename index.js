@@ -18,6 +18,7 @@ function randomPlayer() {
 wrapper.addEventListener("click", function () {
 	body.style.backgroundColor =
 		"#" + Math.floor(Math.random() * 16777215).toString(16);
+
 	for (let i = 0; i < img.length; i++) {
 		img[i].classList.add("roll");
 	}
